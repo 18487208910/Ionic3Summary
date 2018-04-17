@@ -1,4 +1,4 @@
-½ûÖ¹·µ»Ø
+ç¦æ­¢ç”¨æˆ·è¿”å›žä¸Šä¸€é¡µ
 this.navCtrl.push(LoginPage).then(
    ()=>{
      const startIndex = this.navCtrl.getActive().index -1;
