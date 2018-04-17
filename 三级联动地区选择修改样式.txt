@@ -1,0 +1,192 @@
+关于省市县三级联动组件的使用
+1.必须包含在ion-itm中，如下所示
+ <ion-item>
+        <ion-icon name="pin" item-start></ion-icon>
+        <ion-input type="text" placeholder="请选择所在地区"></ion-input>
+        <ion-multi-picker item-content [multiPickerColumns]="cityColumns" [cancelText]="'取消'" [doneText]="'完成'"></ion-multi-picker>
+ </ion-item>
+
+ 2.自定义样式
+ .multi-picker-text,
+.multi-picker-placeholder {
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    align-items: flex-end;
+    -webkit-align-items: flex-end;
+     margin-bottom: 0.26666666rem;
+    min-width: auto;
+    min-height: 1rem;
+    color: #4D4D4D;
+            font-size: 14px;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+   
+}
+
+.item-cover {
+   
+   width: 100%;
+   height: 1rem;
+   
+}
+.picker-ios .picker-button,
+.picker-ios .picker-button.activated {
+    margin: 0;
+    height: 44px;
+    color: #65cde8;
+    background: transparent;
+    font-size: 16px;
+}
+
+.picker-md .picker-toolbar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: end;
+    justify-content: space-between;
+    height: 44px;
+    background: #fff;
+    
+   
+}
+
+.picker-md .picker-prefix, .picker-md .picker-suffix, .picker-md .picker-opt.picker-opt-selected {
+    color: #4D4D4D;
+    background:#FFFFFF;
+    
+}
+.picker-md .picker-col {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    padding: 0 8px;
+   
+}
+
+.picker-col {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height:100%;
+   background: #CCCCCC;
+   opacity: 0.9;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    contain: content;
+}
+.picker-md .picker-opt {
+    margin: 0;
+    height: 1rem;
+    line-height: 1rem;
+    color: #000;
+    color: #4D4D4D;
+    font-size: 14px;
+    background: transparent;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    pointer-events: auto;
+    padding: 0;
+}
+
+.button-md {
+   
+    border-radius: 2px;
+    overflow: hidden;
+    height: 3.6rem;
+    font-size: 14px;
+}
+.picker-md .picker-button, .picker-md .picker-button.activated {
+    margin: 0;
+    height: 44px;
+    color: #65CDE8;
+    background: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.picker-columns {
+    height: 215px;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    background-color: #cccccc;
+}
+
+.picker-ios .picker-above-highlight {
+    left: 0;
+    top: 0;
+    -webkit-transform: translate3d(0, 0, 30px);
+    transform: translate3d(0, 0, 30px);
+    position: absolute;
+    z-index: 11;
+    display: block;
+    width: 100%;
+    height: 81px;
+    border-bottom: 1px solid #c8c7cc;
+    // background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #cccccc), to(#cccccc));
+    // background: linear-gradient(to bottom, #cccccc 30%, #cccccc 100%);
+}
+
+.picker-ios .picker-below-highlight {
+    left: 0;
+    top: 115px;
+    -webkit-transform: translate3d(0, 0, 30deg);
+    transform: translate3d(0, 0, 30deg);
+    position: absolute;
+    z-index: 11;
+    display: block;
+    width: 100%;
+    height: 119px;
+    border-top: 1px solid #c8c7cc;
+    // background: -webkit-gradient(linear, left bottom, left top, color-stop(30%, #cccccc), to(#cccccc));
+    // background: linear-gradient(to top, #cccccc 10%, #cccccc 100%);
+}
+
+.picker-ios .picker-opt {
+    margin: 0;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    height: 4.6rem;
+    font-size: 12px;
+    line-height: 40px;
+    color: #000;
+    background: transparent;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+    pointer-events: auto;
+    padding: 0;
+    height: 40px;
+}
+.picker-ios .picker-toolbar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 44px;
+    border-bottom: 1px solid #4d4d4d;
+    background: #fff;
+}

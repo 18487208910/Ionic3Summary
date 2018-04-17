@@ -1,0 +1,64 @@
+  *实现部分图片可能加载不完全的效果
+  1. 在图片上添加语句
+  <img *ngIf="condition" src="assets/imgs/index/2-01.png" />
+  2.申明
+  public condition: boolean;
+  3.构造函数里面初始化
+  this.condition = false;
+  4.初始化构造
+  ngOnInit() {
+    setTimeout(() => {      
+      this.condition = true;
+      this.loader.dismiss();
+    }, 2000);
+  }
+
+
+  *自定义loading
+  1.import导入LoadingController
+  import { LoadingController } from 'ionic-angular';
+  2.申明loader
+  public loader:any;
+  3.创建loader
+  //构造loading
+    this.loader = this.loadingCtrl.create({ 
+     spinner:'hide',
+     content: '<div class="load"><img src = "assets/imgs/public/load.gif" />客官请稍后...</div>'
+   });
+   this.loader.present();
+
+   *实现ios上下弹动效果
+   1.引入iscroll.js(index.html)
+   2.套壳子
+   <div id="home-wrapper"></div>
+   2.scss设置属性
+   #home-wrapper{
+	flex:1;
+	-webkit-flex:1;
+	width:100%;
+	overflow: hidden;
+	}
+   3.引入第三方库
+   a.申明
+   declare var IScroll:any;
+   declare var $:any;
+   b.在所需要的地方引入
+	/// <reference path="pluginuser/IScroll.ts"/>
+	/// <reference path="pluginuser/$.ts"/>  
+   4.初始化iscroll
+   public loadScroll:boolean=false;
+   5.加载初始化
+   ionViewDidLoad() {
+    this.loadScroll=true;  
+    }
+   6.每次进入初始化
+    ionViewDidEnter(){
+    setTimeout(() => {
+      if(this.loadScroll==true){
+        new IScroll('#home-wrapper', {
+          click:true
+        });
+        this.loadScroll=false;
+      }
+    }, 1000);
+  }

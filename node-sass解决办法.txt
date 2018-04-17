@@ -1,0 +1,3 @@
+node-sass找不到的配置
+https://github.com/sass/node-sass/releases
+将对应的.node文件下载并放在相关的位置即可运行

@@ -1,0 +1,28 @@
+﻿1.广播注册与销毁
+a.导入
+import { Subscription } from 'rxjs/Subscription';
+b.定义对象
+private  subscription:Subscription;
+c.具体方法
+fnSend(){
+    this.broadcaster.fireNativeEvent('recivedata', {"data":'123456'})
+    .then((event) => {
+     
+    })
+  }
+
+  fnRece(){
+    if( this.subscription &&  !this.subscription.closed ) return;
+    let a = this.i++;
+    this.subscription =   this.broadcaster.addEventListener('senddata')
+    .subscribe((event) =>{
+      alert(JSON.parse(event['resultdata']).resultcode+'--'+a);
+    })
+ 
+
+  }
+  onUnregisterListener() {
+    if( !this.subscription || this.subscription.closed ) return;
+    alert('unsubscribe');
+    this.subscription.unsubscribe();
+  }
